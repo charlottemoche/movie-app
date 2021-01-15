@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     get "/single_movie_path" => "movies#single_movie_action"
     get "/all_movies_path" => "movies#all_movies_action"
   end
+  
 end
