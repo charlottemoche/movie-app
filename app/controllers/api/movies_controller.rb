@@ -1,5 +1,7 @@
 class Api::MoviesController < ApplicationController
 
+  before_action :authenticate_admin, except: [:index, :show]
+  
   def show
     movie_id = params[:id]
     @movie = Movie.find_by(id: movie_id)
