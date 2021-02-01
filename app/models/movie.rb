@@ -7,4 +7,10 @@ class Movie < ApplicationRecord
   validates :title, presence: true
   validates :plot, length: {minimum: 10}
 
+  def genre_names
+    genres.map do |genre|
+      genre.name
+    end
+  end
+
 end
