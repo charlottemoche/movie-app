@@ -9,7 +9,7 @@ class Movie < ApplicationRecord
 
   def genre_names
     genres.map do |genre|
-      genre.name
+      return genre.name
     end
   end
 
