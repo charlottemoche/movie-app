@@ -1,6 +1,6 @@
 class Api::MoviesController < ApplicationController
 
-  # before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show]
   
   def show
     movie_id = params[:id]
@@ -20,6 +20,7 @@ class Api::MoviesController < ApplicationController
     plot: params[:plot],
     director: params[:director],
     english: params[:english],
+    image: params[:image],
     )
     if @movie.save
       render "show.json.jb"
@@ -35,6 +36,7 @@ class Api::MoviesController < ApplicationController
     @movie.plot = params[:plot] || @movie.plot
     @movie.director = params[:director] || @movie.director
     @movie.english = params[:english] || @movie.english
+    @movie.image = params[:image] || @movie.image
     if @movie.save
       render "show.json.jb"
     else
